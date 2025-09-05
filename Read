@@ -6,13 +6,110 @@ git commit -m "Descreva a mudança" # 3) Criar o commit
 git pull --rebase origin main      # 4) Atualizar sua branch antes de enviar (evita conflitos)
 git push origin main               # 5) Enviar para o repositório remoto
 
+Pontuação:
+  --> Configuração do SDK
+  --> Arquivo de configuração de pontos para contabilizar o score.
+  EXEMPLO:
+          IP                       = 1  
+          Dispositivo              = 3
+          Tempo de resposta        = 5
+          Multifator               = 10
+          Senha                    = 10
+          Pergunta de segurança    = 8
+          Usuario                  = 5
+
+  Html -- > rota --> funct
 
 
-OTTO:
-Montar o servidor, e arquivos para API.
-Banco de dados
-Dados de acesso
-E usuarios de testes.
+  $('#form').submit(function(){
+    let user = $('#usuario').val();
+    let senha = $('#senha').val();
+    let ip = Function finger;
+    let disp = function disp;
+    
+    let var = rota->Fingerprint(user, senha, ip, disp, tempo)
+
+    if var == 'Alert'{
+      Multifator();
+    }
+
+    if var == 'Danger'{
+      Logout();
+    }
+  })
+
+  func multifator(){
+    multifator()
+  }
+  
+  Func fingerprint(Request, $req):
+  Inicio:0
+  if(IPLocal == $req->IP){
+    inicio += 1  
+  }Else{
+    inicio -= 1  
+  }
+  if(DISPPadrao == $req->DISP){
+    inicio += 3
+  }Else{
+    inicio -= 3
+  }
+  if(tempo == $req->tempo){
+    inicio += 5
+  }Else{
+    inicio -= 5
+  }
+  if(Usuario == $req->usuario){
+    inicio += 5
+  }Else{
+    inicio -= 5
+  }
+  
+  response = [
+    'Danger'=>1,
+    'Danger'=>2,
+    'Danger'=>3,
+    'Alert'=>4,
+    'Alert'=>5,
+    'Alert'=>6,
+    'Sucess'=>7,
+    'Sucess'=>8,
+    'Sucess'=>9,
+  ][inicio]
+    
+  Return Response0;
+  
+
+Front-end (BRN, Gustavinho):
+  -->  FingerPrint(IP, Geolocalização, dispositivo do usuario) --> Coleta de dados passiva.
+  -->  Controle de tempo de Usuario --> Coleta de dados passiva.
+  -->  Comportamento de usuario --> Coleta de dados passiva, Pagina em foco, clique desnecessario
+                             , saber se o cara abriu inspeção de site.
+  --> Multifator.
+
+Back-end:
+  -->   Funções de verificação:
+          --> Verificar acessos.
+          --> Estrutura de retorno.
+          --> Adição de regras com base nos pontos.
+          --> Checagem de novas regras.
+  -->  Funções:
+          --> Checagem de Localização e IP
+          -->
+          -->
+
+  --> Retorno estruturado.
+  --> Calculo de pontos.
+
+
+
+Documentação do projeto
+  -->Uso
+  -->Funções
+  -->Detalhamento de envio e recebimento de dados
+  -->Callbacks
+
+
 
 
 
