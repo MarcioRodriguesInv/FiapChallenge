@@ -1,0 +1,90 @@
+<html>
+<body>
+    <h1>Teste de Envio</h1>
+    <button onclick="sendDataNormal()">Teste Normal (Tempo 45s)</button>
+    <button onclick="sendDataLowTime()">Teste Tempo Baixo (10s)</button>
+    <button onclick="sendDataDifferentIp()">Teste IP Diferente</button>
+    <button onclick="sendDataBoth()">Teste Tempo Baixo + IP Diferente</button>
+    <script>
+        function sendDataNormal() {
+            fetch('http://localhost:3000/identity/verify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: 'user',
+                    ip: '177.124.14.16',
+                    device: 'Chrome',
+                    timeOnPage: 45,
+                    visitorId: '1e1fcc078c672d6731dbe292de1d265f',
+                    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36',
+                    language: 'en',
+                    timezone: 'America/Sao_Paulo'
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log('Normal:', data))
+            .catch(error => console.error('Erro:', error));
+        }
+
+        function sendDataLowTime() {
+            fetch('http://localhost:3000/identity/verify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: 'user',
+                    ip: '177.124.14.16',
+                    device: 'Chrome',
+                    timeOnPage: 10,
+                    visitorId: '1e1fcc078c672d6731dbe292de1d265f',
+                    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36',
+                    language: 'en',
+                    timezone: 'America/Sao_Paulo'
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log('Tempo Baixo:', data))
+            .catch(error => console.error('Erro:', error));
+        }
+
+        function sendDataDifferentIp() {
+            fetch('http://localhost:3000/identity/verify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: 'user',
+                    ip: '192.168.0.1',
+                    device: 'Chrome',
+                    timeOnPage: 45,
+                    visitorId: '1e1fcc078c672d6731dbe292de1d265f',
+                    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36',
+                    language: 'en',
+                    timezone: 'America/Sao_Paulo'
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log('IP Diferente:', data))
+            .catch(error => console.error('Erro:', error));
+        }
+
+        function sendDataBoth() {
+            fetch('http://localhost:3000/identity/verify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: 'user',
+                    ip: '192.168.0.1',
+                    device: 'Chrome',
+                    timeOnPage: 10,
+                    visitorId: '1e1fcc078c672d6731dbe292de1d265f',
+                    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36',
+                    language: 'en',
+                    timezone: 'America/Sao_Paulo'
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log('Ambos:', data))
+            .catch(error => console.error('Erro:', error));
+        }
+    </script>
+</body>
+</html>
