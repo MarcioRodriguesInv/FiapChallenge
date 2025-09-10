@@ -10,11 +10,8 @@
       "id": 2,
       "username": "user",
       "password": "password",
-      "role": "user",
-      "firstLoginData": {
-        "ip": "177.124.14.16",
-        "device": "Chrome"
-      }
+      "role": "user"
     }
   ]
+
 }
